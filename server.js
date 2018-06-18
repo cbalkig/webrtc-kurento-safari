@@ -21,12 +21,10 @@ var express = require('express');
 var ws = require('ws');
 var kurento = require('kurento-client');
 var fs    = require('fs');
-var https = require('https');
+var http = require('http');
 
 var options =
 {
-  key:  fs.readFileSync('keys/server.key'),
-  cert: fs.readFileSync('keys/server.crt')
 };
 
 var app = express();
@@ -34,6 +32,11 @@ app.use(express.static(__dirname + '/static'));
 
 app.get('/ping', function(request, response) {
     response.send('Hello World!')
+});
+
+var port = process.env.PORT || 5000;
+var server = http.createServer(options, app).listen(port, function() {
+    console.log('Kurento Tutorial started');
 });
 
 /*
@@ -201,11 +204,6 @@ CallMediaPipeline.prototype.release = function() {
 /*
  * Server startup
  */
-
-var port = process.env.PORT || 5000;
-var server = https.createServer(options, app).listen(port, function() {
-    console.log('Kurento Tutorial started');
-});
 
 
 var wss = new ws.Server({
