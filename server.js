@@ -30,6 +30,7 @@ var options =
 };
 
 var app = express();
+app.use(express.static(__dirname + '/static'));
 
 /*
  * Definition of global variables.
