@@ -230,7 +230,7 @@ wss.on('connection', function(ws) {
         var message = JSON.parse(_message);
         console.log('Connection ' + sessionId + ' received message ', message);
 		
-	console.log("MESSAGE ::: " + JSON.stringfy(message));
+	console.log("MESSAGE ::: " + JSON.stringify(message));
 
         switch (message.id) {
         case 'register':
