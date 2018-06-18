@@ -32,6 +32,10 @@ var options =
 var app = express();
 app.use(express.static(__dirname + '/static'));
 
+app.get('/ping', function(request, response) {
+    response.send('Hello World!')
+});
+
 /*
  * Definition of global variables.
  */
