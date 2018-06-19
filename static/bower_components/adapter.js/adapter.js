@@ -69,7 +69,9 @@ if (typeof window === 'object') {
           // Use _srcObject as a private property for this shim
           this._srcObject = stream;
           // TODO: revokeObjectUrl(this.src) when !stream to release resources?
-          this.src = URL.createObjectURL(stream);
+          // EMRAH DOGAN
+          // this.src = URL.createObjectURL(stream);
+          this.srcObject = stream;
         }
       }
     });
@@ -492,7 +494,9 @@ if (typeof window === 'undefined' || !window.navigator) {
     if (webrtcDetectedVersion >= 43) {
       element.srcObject = stream;
     } else if (typeof element.src !== 'undefined') {
-      element.src = URL.createObjectURL(stream);
+      // element.src = URL.createObjectURL(stream);
+      // EMRAH DOGAN
+        element.srcObject = stream;
     } else {
       webrtcUtils.log('Error attaching stream to element.');
     }
