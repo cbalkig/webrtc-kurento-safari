@@ -111,10 +111,19 @@ function CallMediaPipeline() {
 
 CallMediaPipeline.prototype.createPipeline = function(callerId, calleeId, ws, callback) {
     var self = this;
+
+    console.log("##################################################################");
+    console.log("CREATEPIPELINE");
+    console.log("##################################################################");
+
     getKurentoClient(function(error, kurentoClient) {
         if (error) {
             return callback(error);
         }
+
+        console.log("##################################################################");
+        console.log("getKurentoClient SUCCESS");
+        console.log("##################################################################");
 
         kurentoClient.create('MediaPipeline', function(error, pipeline) {
             if (error) {
@@ -242,6 +251,7 @@ wss.on('connection', function(ws) {
             break;
 
         case 'incomingCallResponse':
+            console.log("################incomingCallResponse######################3")
             incomingCallResponse(sessionId, message.from, message.callResponse, message.sdpOffer, ws);
             break;
 
@@ -336,6 +346,10 @@ function incomingCallResponse(calleeId, from, callResponse, calleeSdp, ws) {
         return onError(null, 'unknown from = ' + from);
     }
     var caller = userRegistry.getByName(from);
+
+    console.log("###############################################");
+    console.log(caller);
+    console.log("###############################################");
 
     if (callResponse === 'accept') {
         var pipeline = new CallMediaPipeline();
