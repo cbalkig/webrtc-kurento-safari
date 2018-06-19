@@ -118,6 +118,9 @@ CallMediaPipeline.prototype.createPipeline = function(callerId, calleeId, ws, ca
 
     getKurentoClient(function(error, kurentoClient) {
         if (error) {
+            console.log("##################################################################");
+            console.log("getKurentoClient ERROR : " + error);
+            console.log("##################################################################");
             return callback(error);
         }
 
