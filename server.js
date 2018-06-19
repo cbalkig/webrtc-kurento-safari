@@ -276,6 +276,9 @@ function getKurentoClient(callback) {
             return callback(message + ". Exiting with error " + error);
         }
 
+        console.log("###############################################");
+        console.log(_kurentoClient);
+        console.log("###############################################");
         kurentoClient = _kurentoClient;
         callback(null, kurentoClient);
     });
