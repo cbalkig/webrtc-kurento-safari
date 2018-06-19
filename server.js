@@ -283,6 +283,12 @@ function getKurentoClient(callback) {
     kurento(KURENTO_URL, function(error, _kurentoClient) {
         if (error) {
             var message = 'Coult not find media server at address ' + KURENTO_URL;
+
+            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            console.log(message);
+            console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+
             return callback(message + ". Exiting with error " + error);
         }
 
