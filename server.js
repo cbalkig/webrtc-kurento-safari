@@ -35,7 +35,7 @@ app.get('/ping', function(request, response) {
 });
 
 var port = process.env.PORT || 5000;
-var server = http.createServer(options, app).listen(port, function() {
+var server = http.createServer(app).listen(port, function() {
     console.log('Kurento Tutorial started');
 });
 
